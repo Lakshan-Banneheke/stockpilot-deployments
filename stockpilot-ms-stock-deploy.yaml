@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-stockpilot-ms-stock
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+  selector:
+    app:  stockpilot-ms-stock
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stockpilot-ms-stock
+spec:
+  selector:
+    matchLabels:
+      app: stockpilot-ms-stock
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: stockpilot-ms-stock
+    spec:
+      containers:
+      - name: stockpilot-ms-stock
+        image: lakshanbanneheke/stockpilot-ms-stock:latest
+        imagePullPolicy: Always
+        securityContext:
+          privileged: true
+        ports:
+        - containerPort: 80
+        env:
+          - name: FLASK_APP
+            value: "app.py"
+          - name: FLASK_RUN_PORT
+            value: "80"
+          - name: SECRET_KEY
+            value: "stockpilot"
+          - name: MONGO_URL_GENERAL
+            value: "mongodb+srv://SEPU02:general123@sepcluster.yjn4m.mongodb.net/test_sep?retryWrites=true&w=majority"
+          - name: MONGO_URL_ADMIN
+            value: "mongodb+srv://SEPU01:User123@sepcluster.yjn4m.mongodb.net/test_sep?retryWrites=true&w=majority"

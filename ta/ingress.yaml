@@ -1,0 +1,105 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ing-stockpilot-ms-ta
+spec:
+  ingressClassName: traefik
+  rules:
+# - host: myapp.com
+#   http:
+#      paths:
+#         backend:
+#           service:
+  - http:
+      paths:
+      - path: /ta/macd/
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-stockpilot-ms-ta-macd
+            port:
+              number: 80
+      - path: /ta/bbands/
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-stockpilot-ms-ta-bbands
+            port:
+              number: 80
+      - path: /ta/obv/
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-stockpilot-ms-ta-obv
+            port:
+              number: 80
+      - path: /ta/roc/
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-stockpilot-ms-ta-roc
+            port:
+              number: 80
+      - path: /ta/rsi/
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-stockpilot-ms-ta-rsi
+            port:
+              number: 80
+      - path: /ta/stoch/
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-stockpilot-ms-ta-stoch
+            port:
+              number: 80
+      - path: /ta/ma/
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-stockpilot-ms-ta-movavg
+            port:
+              number: 80
+      - path: /ta/ema/
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-stockpilot-ms-ta-movavg
+            port:
+              number: 80
+      - path: /ta/wma/
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-stockpilot-ms-ta-movavg
+            port:
+              number: 80
+      - path: /ta/sma/
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-stockpilot-ms-ta-movavg
+            port:
+              number: 80
+      - path: /binance/listen/
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-stockpilot-ms-main
+            port:
+              number: 80
+      - path: /stock/
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-stockpilot-ms-stock
+            port:
+              number: 80
+      - path: /binance/
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-stockpilot-ms-main
+            port:
+              number: 80

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: envs-config
+data:
+  HOST_CRYPTO_MS: svc-stockpilot-ms-main
+  HOST_STOCK_MS: svc-stockpilot-ms-stock
