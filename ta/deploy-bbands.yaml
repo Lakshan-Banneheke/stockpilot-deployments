@@ -18,11 +18,12 @@ spec:
   selector:
     matchLabels:
       app: stockpilot-ms-ta-bbands
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
         app: stockpilot-ms-ta-bbands
+        category: optional
     spec:
       containers:
       - name: stockpilot-ms-ta-bbands

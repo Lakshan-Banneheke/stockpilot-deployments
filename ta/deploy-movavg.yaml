@@ -18,7 +18,8 @@ spec:
   selector:
     matchLabels:
       app: stockpilot-ms-ta-movavg
-  replicas: 2
+      category: optional
+  replicas: 1
   template:
     metadata:
       labels:

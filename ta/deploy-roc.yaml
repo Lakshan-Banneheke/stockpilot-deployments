@@ -18,11 +18,12 @@ spec:
   selector:
     matchLabels:
       app: stockpilot-ms-ta-roc
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
         app: stockpilot-ms-ta-roc
+        category: optional
     spec:
       containers:
       - name: stockpilot-ms-ta-roc
