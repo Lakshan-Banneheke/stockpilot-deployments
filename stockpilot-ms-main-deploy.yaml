@@ -25,6 +25,7 @@ spec:
         app: stockpilot-ms-main
         category: mandatory
     spec:
+      nodeName: node22
       containers:
       - name: stockpilot-ms-main
         image: lakshanbanneheke/stockpilot-ms-main:latest
