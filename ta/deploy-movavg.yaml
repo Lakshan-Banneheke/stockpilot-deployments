@@ -18,12 +18,12 @@ spec:
   selector:
     matchLabels:
       app: stockpilot-ms-ta-movavg
-      category: optional
   replicas: 1
   template:
     metadata:
       labels:
         app: stockpilot-ms-ta-movavg
+        category: optional
     spec:
       containers:
       - name: stockpilot-ms-ta-movavg
